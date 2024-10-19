@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Life Sections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden-content {
+            display: none;
+        }
+        .password-input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .open-section {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .open-section:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Life Sections</h1>
+
+    <!-- Earth Life Section (No password needed) -->
+    <div class="section">
+        <h2>Earth Life</h2>
+        <p>Henüz içerik belirlenmedi, yakında gelecek!</p>
+    </div>
+
+    <!-- Another Life Section (Password protected) -->
+    <div class="section">
+        <h2>Another Life (Şifre Gerekli)</h2>
+        <input type="password" id="password" class="password-input" placeholder="Şifrenizi girin">
+        <button class="submit-button" onclick="checkPassword()">Giriş Yap</button>
+
+        <div id="protected-content" class="hidden-content">
+            <p>Bu içerik şifre ile korunan bir alandır.</p>
+            <!-- Buraya yüklediğin dosyalar veya içerikler gelebilir -->
+            <a href="dosya1.pdf" download>Dosya 1 İndir</a><br>
+            <a href="dosya2.pdf" download>Dosya 2 İndir</a>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            if (password === 'p278935') {
+                document.getElementById('protected-content').style.display = 'block';
+            } else {
+                alert('Yanlış şifre! Lütfen tekrar deneyin.');
+            }
+        }
+    </script>
+
+</body>
+</html>
