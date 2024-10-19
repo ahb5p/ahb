@@ -50,6 +50,9 @@
         .open-section:hover {
             background-color: #1976D2;
         }
+        .dropdown {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +63,28 @@
     <div class="section">
         <h2>Earth Life</h2>
         <p>Henüz içerik belirlenmedi, yakında gelecek!</p>
+
+        <div class="dropdown">
+            <h3>Earth Universe</h3>
+            <button onclick="toggleRedNotes()">Red Notes</button>
+            <button onclick="toggleChat()">Chat</button>
+        </div>
+
+        <div id="red-notes" class="hidden-content">
+            <h4>Red Notes</h4>
+            <p>Günlük ve Not Defteri seçenekleri var.</p>
+            <p><strong>Not Defteri:</strong> Kullanıcılar sadece kendi notlarını görebilecek.</p>
+            <p><strong>Günlük:</strong> Tüm günlüklerinizi buradan takip edebilirsiniz.</p>
+        </div>
+
+        <div id="chat" class="hidden-content">
+            <h4>Chat (Şifre Gerekli)</h4>
+            <input type="password" id="chat-password" class="password-input" placeholder="Şifrenizi girin">
+            <button class="submit-button" onclick="checkChatPassword()">Giriş Yap</button>
+            <div id="chat-content" class="hidden-content">
+                <p>WhatsApp Bibi ile mesajlaşabilirsiniz: "Naber?"</p>
+            </div>
+        </div>
     </div>
 
     <!-- Another Life Section (Password protected) -->
@@ -70,9 +95,8 @@
 
         <div id="protected-content" class="hidden-content">
             <p>Bu içerik şifre ile korunan bir alandır.</p>
-            <!-- Buraya yüklediğin dosyalar veya içerikler gelebilir -->
-            <a href="dosya1.pdf" download>Dosya 1 İndir</a><br>
-            <a href="dosya2.pdf" download>Dosya 2 İndir</a>
+            <p><a href="https://share.goodnotes.com/s/nctrZrmwiz5vlzDXzXKQIR" target="_blank">GoodNotes Defterine Erişim</a></p>
+            <p><a href="https://sites.google.com/view/ahb-bag/ana-sayfa" target="_blank">Google Sites Linkine Erişim</a></p>
         </div>
     </div>
 
@@ -84,6 +108,25 @@
             } else {
                 alert('Yanlış şifre! Lütfen tekrar deneyin.');
             }
+        }
+
+        function checkChatPassword() {
+            var chatPassword = document.getElementById('chat-password').value;
+            if (chatPassword === 'gdb') {
+                document.getElementById('chat-content').style.display = 'block';
+            } else {
+                alert('Yanlış şifre! Lütfen tekrar deneyin.');
+            }
+        }
+
+        function toggleRedNotes() {
+            var redNotes = document.getElementById('red-notes');
+            redNotes.style.display = redNotes.style.display === 'none' || redNotes.style.display === '' ? 'block' : 'none';
+        }
+
+        function toggleChat() {
+            var chat = document.getElementById('chat');
+            chat.style.display = chat.style.display === 'none' || chat.style.display === '' ? 'block' : 'none';
         }
     </script>
 
